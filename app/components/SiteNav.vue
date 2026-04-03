@@ -98,9 +98,9 @@ const navMenu = computed<DropdownOption[]>(() => [
     props: {
       onClick: () => {
         window.$dialog.warning({
-          title: "退出登录",
-          content: "确定要退出登录吗?",
-          positiveText: "确定",
+          title: "登出",
+          content: "確定要登出嗎?",
+          positiveText: "確定",
           negativeText: "取消",
           transformOrigin: "center",
           onPositiveClick: async () => {
@@ -108,10 +108,10 @@ const navMenu = computed<DropdownOption[]>(() => [
               method: "POST",
             });
             if (code !== 200) {
-              window.$message.error("退出登录失败");
+              window.$message.error("登出失敗");
               return;
             }
-            window.$message.success("退出登录成功");
+            window.$message.success("登出成功");
             statusStore.loginStatus = false;
             localStorage.removeItem("authToken");
           },
